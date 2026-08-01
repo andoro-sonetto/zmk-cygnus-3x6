@@ -46,16 +46,27 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)     RC(3,6) RC(3,7) RC(3,8) RC(3
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
         wakeup-source;
+        diode-direction = "col2row"; // ダイオードの向き
 
+        // 【行】XIAOのピン（A0〜A4）に実質5行で割り当て
         row-gpios
-            = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row A from the schematic file
-            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row B from the schematic file
-            , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row C from the schematic file
-            , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row D from the schematic file
-            , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row E from the schematic file
+            = <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // A0 (Row0)
+            , <&gpio0 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // A1 (Row1)
+            , <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // A2 (Row2)
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // A3 (Row3)
+            , <&gpio0 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // A4 (Row4 / 親指)
             ;
 
+        // 【列】XIAOのピン（A5〜D10）に6列で割り当て
+        col-gpios
+            = <&gpio0 5  GPIO_ACTIVE_HIGH> // A5  (Col0)
+            , <&gpio1 11 GPIO_ACTIVE_HIGH> // D6  (Col1)
+            , <&gpio1 12 GPIO_ACTIVE_HIGH> // D7  (Col2)
+            , <&gpio1 13 GPIO_ACTIVE_HIGH> // D8  (Col3)
+            , <&gpio1 14 GPIO_ACTIVE_HIGH> // D9  (Col4)
+            , <&gpio1 15 GPIO_ACTIVE_HIGH> // D10 (Col5)
+            ;
     };
+
 };
