@@ -2,18 +2,17 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-// レイヤー名に番号（ID）を割り当て
+// レイヤー名に番号（ID）を再割り当て（0〜3の4レイヤー構成）
 #define DEFAULT 0
 #define NUMBER  1
 #define FUNC    2
-#define MOUSE   3
-#define BLE     4
+#define BLE     3
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        // レイヤー 0 : デフォルト (最上段に数字キーを配置)
+        // レイヤー 0 : デフォルト
         default_layer {
             bindings = <
                 &kp ESC   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                          &kp N6 &kp N7 &kp N8    &kp N9  &kp N0   &kp BSPC
@@ -31,7 +30,7 @@
                 &trans    &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                          &kp N6    &kp N7   &kp N8    &kp N9    &kp N0    &kp PLUS
                 &trans    &none    &none    &none    &none    &none                           &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH  &trans
                 &trans    &none    &none    &none    &none    &none                           &none     &none    &none     &none     &mo BLE   &trans
-                                            &trans   &trans   &trans                  &trans    &trans    &mo MOUSE
+                                            &trans   &trans   &trans                  &trans    &trans    &trans
             >;
         };
 
@@ -42,22 +41,11 @@
                 &kp F7    &kp F8   &kp F9   &kp F10  &kp F11  &kp F12                         &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &none     &none
                 &trans    &none    &none    &none    &none    &none                           &none     &none     &none     &none     &none     &trans
                 &trans    &none    &none    &none    &none    &none                           &none     &none     &none     &none     &none     &trans
-                                            &mo MOUSE &trans  &trans                  &trans    &trans    &trans
+                                            &trans    &trans  &trans                  &trans    &trans    &trans
             >;
         };
 
-        // レイヤー 3 : マウス
-        mouse_layer {
-            bindings = <
-                &trans    &none    &none    &none    &none    &none                           &none     &none     &none     &none     &none     &trans
-                &trans    &none    &none    &none    &none    &none                           &none     &none     &none     &none     &none     &none
-                &trans    &none    &none    &none    &none    &none                           &none     &none     &none     &none     &none     &trans
-                &trans    &none    &none    &none    &none    &none                           &none     &none     &none     &none     &none     &trans
-                                            &trans   &trans   &trans                  &trans    &trans    &trans
-            >;
-        };
-
-        // レイヤー 4 : BT
+        // レイヤー 3 : BLE (Bluetooth切り替え)
         ble_layer {
             bindings = <
                 &bt BT_CLR &none        &none        &none        &none        &none                           &none        &none        &none        &none        &none        &none
