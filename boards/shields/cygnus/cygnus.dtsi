@@ -25,23 +25,23 @@
         wakeup-source;
         diode-direction = "col2row";
 
-        // 【行：イラストの7〜11番】XIAOのピンへ割り当て
+        // 【行】イラストの 7〜11番（XIAOの左側ピンを上から順番に）
         row-gpios
-            = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 7番ピン (XIAO D6)➔Row0
-            , <&gpio1 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 8番ピン (XIAO D8)➔Row1
-            , <&gpio1 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 9番ピン (XIAO D9)➔Row2
-            , <&gpio1 1  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 10番ピン(XIAO D10)➔Row3
-            , <&gpio0 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 11番ピン(XIAO A1) ➔Row4
+            = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 7番ピン (XIAO D6)  ➔Row0
+            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 8番ピン (XIAO D7)  ➔Row1
+            , <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 9番ピン (XIAO D8)  ➔Row2
+            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 10番ピン(XIAO D9)  ➔Row3
+            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // 11番ピン(XIAO D10) ➔Row4 (親指)
             ;
 
-        // 【列：イラストの1〜6番】XIAOのピンへ割り当て
+        // 【列】イラストの 1〜6番（XIAOの右側ピンを上から順番に）
         col-gpios
             = <&gpio0 2  GPIO_ACTIVE_HIGH> // 1番ピン (XIAO A0) ➔Col0
-            , <&gpio0 28 GPIO_ACTIVE_HIGH> // 2番ピン (XIAO A2) ➔Col1
-            , <&gpio0 29 GPIO_ACTIVE_HIGH> // 3番ピン (XIAO A3) ➔Col2
-            , <&gpio0 4  GPIO_ACTIVE_HIGH> // 4番ピン (XIAO A4) ➔Col3
-            , <&gpio0 5  GPIO_ACTIVE_HIGH> // 5番ピン (XIAO A5) ➔Col4
-            , <&gpio1 0  GPIO_ACTIVE_HIGH> // 6番ピン (XIAO D7) ➔Col5
+            , <&gpio0 3  GPIO_ACTIVE_HIGH> // 2番ピン (XIAO A1) ➔Col1
+            , <&gpio0 28 GPIO_ACTIVE_HIGH> // 3番ピン (XIAO A2) ➔Col2
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> // 4番ピン (XIAO A3) ➔Col3
+            , <&gpio0 4  GPIO_ACTIVE_HIGH> // 5番ピン (XIAO A4) ➔Col4
+            , <&gpio0 5  GPIO_ACTIVE_HIGH> // 6番ピン (XIAO A5) ➔Col5
             ;
     };
 };
