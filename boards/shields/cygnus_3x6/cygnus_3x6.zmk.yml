@@ -1,0 +1,11 @@
+file_format: "1"
+id: cygnus_3x6
+name: Cygnus 3x6
+type: shield
+url: https://github.com/andoro-sonetto/zmk-cygnus-3x6
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+siblings:
+  - cygnus_3x6_left
+  - cygnus_3x6_right
