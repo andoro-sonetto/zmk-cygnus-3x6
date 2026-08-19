@@ -1,7 +1,7 @@
 include:
   - board: seeeduino_xiao_ble
-    shield: cygnus_left
+    shield: cygnus_3x6_left
   - board: seeeduino_xiao_ble
-    shield: cygnus_right
+    shield: cygnus_3x6_right
   - board: seeeduino_xiao_ble
     shield: settings_reset
